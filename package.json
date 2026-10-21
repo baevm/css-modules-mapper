@@ -1,0 +1,62 @@
+{
+  "name": "css-modules-mapper",
+  "version": "0.1.0",
+  "description": "TypeScript 7.1 content mapper that type-checks CSS module imports against the CSS itself, with no generated .d.ts files",
+  "keywords": [
+    "typescript",
+    "typescript-7",
+    "content-mapper",
+    "css-modules",
+    "css",
+    "types",
+    "typed-css-modules",
+    "vite",
+    "webpack"
+  ],
+  "homepage": "https://github.com/baevm/css-modules-mapper#readme",
+  "bugs": {
+    "url": "https://github.com/baevm/css-modules-mapper/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baevm/css-modules-mapper.git"
+  },
+  "license": "MIT",
+  "author": "Mikhail Baev <baev2m@gmail.com>",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "typescript": {
+    "contentMapper": {
+      "exec": [
+        "node",
+        "./dist/mapper.js"
+      ],
+      "compilerOptions": [],
+      "dynamicConfig": false
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "fixtures:link": "mkdir -p test/e2e/fixtures/node_modules && ln -sfn ../../../.. test/e2e/fixtures/node_modules/css-modules-mapper",
+    "prepack": "npm run build"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "postcss": "^8.5.31",
+    "postcss-selector-parser": "^7.1.7",
+    "ts-content-mapper": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.1.0-beta",
+    "vitest": "^5.0.5"
+  }
+}

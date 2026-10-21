@@ -1,0 +1,14 @@
+/* Ünïcode comment so UTF-8 and UTF-16 offsets differ */
+.btn {
+  animation: spin 1s;
+}
+
+@media (hover: hover) {
+  .btn-primary:hover :global(.icon) {
+    color: red;
+  }
+}
+
+@keyframes spin {
+  to { rotate: 1turn; }
+}
